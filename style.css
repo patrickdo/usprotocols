@@ -64,9 +64,9 @@ tbody tr:hover {
 .search {
 	background: #ffffff url('Resources/magnifying-glass-128.png') no-repeat 16px/16px;
 	background-position: 3px 3px;
-	padding-left: 22px !important;
-	height: 20px;
-	line-height: 20px;
+	padding-left: 23px !important;
+	height: 26px !important;
+	box-sizing: border-box;
 	font-size: 16px;
 }
 
