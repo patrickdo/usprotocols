@@ -35,6 +35,9 @@ tbody tr:hover {
 }
 
 .page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 	font-size: xx-large;
 	font-weight: bold;
 }
