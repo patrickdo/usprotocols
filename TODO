@@ -1,0 +1,17 @@
+
+2026-09-18 WORKFLOW
+1) Open Melody's GSheet and copy/paste entire contents into Excel.
+    https://docs.google.com/spreadsheets/d/1ml27qosuzdKqfRr-TkhhHb0HUTmiKtAqmWNmIxZfKzM/edit?gid=0#gid=0
+2) File - Options - Advanced - Editing Options
+    a) Uncheck Use system separators
+    b) Decimal separator: ,
+    c) Thousands separator: .
+3) Save as CSV (UTF-8)
+4) Open Github for Desktop
+5) Open the repository in your external editor (VS Code)
+6) Copy csv into project folder, rename to usprotocols.csv
+7) Update Updated Date
+8) Save/Commit the files
+9) Sync Changes so they are available on the internet and not just my local PC
+    a) check status of publication to gh-pages here: https://github.com/patrickdo/usprotocols
+    b) https://patrickdo.github.io/usprotocols/

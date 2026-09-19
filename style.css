@@ -1,0 +1,77 @@
+:root {
+	--DignityOrange: rgb(247,121,0); /* "Dignity Orange" from the indications pdf */
+	--DignityFontFamily: "trade-gothic-next","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+body {
+	font-family: var(--DignityFontFamily);
+	font-weight: 500;
+}
+
+table {
+	border: 1px solid #CCC;
+	font-size: medium;
+	border-collapse: collapse;
+	background-color: rgb(217,217,217);
+	/* width: 980px; */
+}
+
+td {
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+th {
+	background-color: var(--DignityOrange);
+	color: #FFF;
+	font-weight: bold;
+	padding: 4px;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+tbody tr:hover {
+	background: rgb(191,191,191);
+}
+
+.page-title {
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+.updated-date {
+	float: right;
+	font-size: small;
+}
+
+.procedureCol {
+	width: 25%;
+}
+
+.reasonCol {
+	width: 65%;
+}
+
+.CPTCol {
+	width: 10%;
+}
+
+.search {
+	background: #ffffff url('Resources/magnifying-glass-128.png') no-repeat 16px/16px;
+	background-position: 3px 3px;
+	padding-left: 22px !important;
+	height: 20px;
+	line-height: 20px;
+	font-size: 16px;
+}
+
+.normalText {
+	font-size: medium;
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "trade-gothic-next";
+	src: url(Resources/trade-gothic-lt-std.otf);
+}

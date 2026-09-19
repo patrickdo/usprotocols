@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Cache-control" content="max-age=600">
+	<title>DHAI US Protocols</title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+	<link rel="shortcut icon" type="image/png" href="Resources/hashtag_icon.png">
+	<link rel="icon" type="image/png" href="Resources/hashtag_icon.png">
+</head>
+
+<body>
+
+	<div class="page-title">
+		DHAI US Protocols
+		<span class="updated-date">
+			Updated: 9/18/2026	<!-- UPDATED DATE -->
+			<br><br>
+			<span style="font-weight: normal;">
+				Other links:
+				<br>
+				<a href="https://patrickdo.github.io/xrayprotocols/" target="_blank">DHAI X-ray Protocols</a><br>
+				<a href="https://apps.mrgschedule.com/ctprotocols/" target="_blank">DHAI CT/MRI Protocols</a><br>
+				<a href="https://patrickdo.github.io/referralbinder/" target="_blank">DHAI Referral Guide</a>
+			</span>	
+		</span>
+	</div>
+
+	<p>Start typing in the search box to narrow down the list.</p>
+
+	<div id="protocolDIV">
+		<table id="main">
+			<tr>
+				<th colspan="6">
+					<input class="search" placeholder="Search" aria-label="inputSearch" autofocus/> 
+				</th>
+			</tr>
+
+			<tr>
+				<th class="anatomyCol">Anatomy</th>
+				<th class="procedureCol">Procedure<br>(Order As)</th>
+				<th class="protCol">Protocol</th>
+				<th class="indicationCol">Clinical<br>Indications</th>
+				<th class="durationCol">Duration</th>
+                <th class="prepCol">Prep</th>
+			</tr>
+
+			<tbody class="list">
+			<!-- not compatible with td colspan -->
+
+				<!-- template entry that then gets removed -->
+				<tr id="protocolItem">
+					<td class="anatomyTD"></td>
+					<td class="procedureTD">Loading...</td>
+					<td class="protTD">Loading...</td>
+					<td class="indicationTD">Loading...</td>
+					<td class="durationTD">Loading...</td>
+                    <td class="prepTD">Loading...</td>
+				</tr>
+
+
+			</tbody>
+		</table>
+	</div>
+
+	<script type="text/javascript" src="list.min.js"></script>	<!-- https://listjs.com/ . Note: v2.3.1 does NOT work out of the box -->
+	<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
