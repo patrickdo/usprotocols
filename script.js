@@ -7,13 +7,24 @@ const options ={
 		'indicationTD',
 		'durationTD',
 		'prepTD',
-		'protocolTD'
 	],
 	page: [2000]
 };
 
 const protocolList = new List('protocolDIV', options);
 
+// --- Handle "No results found" message ---
+protocolList.on('updated', function (list) {
+    const noResultElem = document.querySelector('.no-result');
+    if (noResultElem) {
+        // Show message only if search is active and 0 items matched
+        if (list.searched && list.matchingItems.length === 0) {
+            noResultElem.style.display = 'block';
+        } else {
+            noResultElem.style.display = 'none';
+        }
+    }
+});
 
 // --- 2. Main logic wrapped in a modern async function ---
 async function loadProtocols() {
