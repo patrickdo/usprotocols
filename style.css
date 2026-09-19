@@ -13,6 +13,8 @@ table {
 	font-size: medium;
 	border-collapse: collapse;
 	background-color: rgb(217,217,217);
+	width: 100%;
+	table-layout: fixed;
 	/* width: 980px; */
 }
 
