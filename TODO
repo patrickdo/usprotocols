@@ -9,7 +9,7 @@
 3) Save as CSV (UTF-8)
 4) Open Github for Desktop
 5) Open the repository in your external editor (VS Code)
-6) Copy csv into project folder, rename to usprotocols.csv
+6) Copy csv into project folder, ensure name is usprotocols.csv
 7) Update Updated Date
 8) Save/Commit the files
 9) Sync Changes so they are available on the internet and not just my local PC
