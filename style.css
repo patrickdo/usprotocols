@@ -22,7 +22,7 @@ th.indicationTD,
 td.indicationTD,
 .indicationTD {
 	width: 35% !important;        /* Allocates a substantial percentage of the table width */
-	min-width: 320px !important;  Prevents it from ever getting crushed on smaller windows
+	min-width: 320px !important;  /* Prevents it from ever getting crushed on smaller windows */
 }
 
 td {

@@ -16,6 +16,43 @@ const options = {
 
 const protocolList = new List('protocolDIV', options);
 
+// --- Dynamic Search Term Highlighting ---
+protocolList.on('searchComplete', function (list) {
+	// Find the search input box inside #protocolDIV
+	const searchInput = document.querySelector('#protocolDIV .search');
+	const query = searchInput ? searchInput.value.trim() : '';
+
+	// 1. Remove existing highlights from previous queries
+	document.querySelectorAll('table tbody mark.highlight').forEach(mark => {
+		const parent = mark.parentNode;
+		parent.replaceChild(document.createTextNode(mark.textContent), mark);
+		parent.normalize(); // Merges split text nodes back together cleanly
+	});
+
+	// If the search bar is empty, exit early
+	if (!query) return;
+
+	// Escape special regex characters (like +, *, (, ), etc.)
+	const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	const regex = new RegExp(`(${escapedQuery})`, 'gi');
+
+	// 2. Wrap matching text in visible rows with <mark class="highlight">
+	list.matchingItems.forEach(item => {
+		// Only target textual columns, skipping buttons or badge-styled columns
+		const targetCells = item.elm.querySelectorAll('.anatomyTD, .procedureTD, .protTD, .indicationTD');
+
+		targetCells.forEach(cell => {
+			// Skip cells that contain full anchor links or complex children
+			if (cell.children.length === 0) {
+				const originalText = cell.textContent;
+				if (regex.test(originalText)) {
+					cell.innerHTML = originalText.replace(regex, '<mark class="highlight">$1</mark>');
+				}
+			}
+		});
+	});
+});
+
 // Toggle "No matching results" banner
 protocolList.on('updated', function (list) {
 	const noResultElem = document.querySelector('.no-result');
