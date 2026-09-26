@@ -14,8 +14,15 @@ table {
 	border-collapse: collapse;
 	background-color: rgb(217,217,217);
 	width: 100%;
-	table-layout: fixed;
-	/* width: 980px; */
+	/* table-layout: fixed; */
+}
+
+/* Expand Clinical Indications to take priority width */
+th.indicationTD,
+td.indicationTD,
+.indicationTD {
+	width: 35% !important;        /* Allocates a substantial percentage of the table width */
+	min-width: 320px !important;  Prevents it from ever getting crushed on smaller windows
 }
 
 td {
@@ -51,14 +58,7 @@ tbody tr:hover {
 
 .procedureCol {
 	width: 25%;
-}
-
-.reasonCol {
-	width: 65%;
-}
-
-.CPTCol {
-	width: 10%;
+	white-space: nowrap;
 }
 
 .search {
@@ -79,4 +79,52 @@ tbody tr:hover {
 @font-face {
 	font-family: "trade-gothic-next";
 	src: url(Resources/trade-gothic-lt-std.otf);
+}
+
+/* Color-coding the Prep */
+/* Base badge layout */
+.badge-prep {
+	display: inline-block;
+	padding: 4px 8px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	border-radius: 4px;
+	line-height: 1.2;
+	white-space: nowrap;
+}
+
+/* 1. Fasted (Amber / Caution) */
+.badge-fasted {
+	background-color: #fff3cd;
+	color: #856404;
+	border: 1px solid #ffeeba;
+}
+
+/* 2. Fasted Preferred (Soft Amber with dashed border) */
+.badge-fasted-pref {
+	background-color: #fff8e1;
+	color: #856404;
+	border: 1px dashed #ffd54f;
+}
+
+/* 3. Water Prep (Soft Blue / Hydration) */
+.badge-water {
+	background-color: #cce5ff;
+	color: #004085;
+	border: 1px solid #b8daff;
+}
+
+/* 4. No Prep (Neutral Light Gray) */
+.badge-no-prep {
+	background-color: #e9ecef;
+	color: #495057;
+	border: 1px solid #ced4da;
+}
+
+/* 5. Fasted w/ Water Prep (Dual-toned gradient) */
+.badge-combo {
+	background: linear-gradient(135deg, #fff3cd 48%, #cce5ff 52%);
+	color: #212529;
+	border: 1px solid #b8daff;
+	box-shadow: inset 0 0 0 1px #ffeeba;
 }

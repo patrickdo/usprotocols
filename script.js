@@ -1,5 +1,8 @@
-// --- 1. Initialize List.js
-const options ={
+// ==========================================
+// 1. LIST.JS INITIALIZATION
+// ==========================================
+
+const options = {
 	valueNames: [
 		'anatomyTD',
 		'procedureTD',
@@ -8,82 +11,120 @@ const options ={
 		'durationTD',
 		'prepTD',
 	],
-	page: [2000]
+	page: 2000
 };
 
 const protocolList = new List('protocolDIV', options);
 
-// --- Handle "No results found" message ---
+// Toggle "No matching results" banner
 protocolList.on('updated', function (list) {
-    const noResultElem = document.querySelector('.no-result');
-    if (noResultElem) {
-        if (list.searched && list.matchingItems.length === 0) {
-            noResultElem.style.display = 'table-row-group';
-        } else {
-            noResultElem.style.display = 'none';
-        }
-    }
+	const noResultElem = document.querySelector('.no-result');
+	if (noResultElem) {
+		const hasNoMatches = list.searched && list.matchingItems.length === 0;
+		noResultElem.style.display = hasNoMatches ? 'table-row-group' : 'none';
+	}
 });
 
-// --- 2. Main logic wrapped in a modern async function ---
-async function loadProtocols() {
-    try {
-        // Use the modern `fetch` to get the file.
-        const response = await fetch('usprotocols.csv');
+// ==========================================
+// 2. DATA PROCESSING HELPERS
+// ==========================================
 
-        // Check if the file was found and the request was successful.
-        if (!response.ok) {
-            throw new Error(`Failed to fetch CSV. Status: ${response.status}`);
-        }
-
-        const rawCSVText = await response.text();
-        
-        // Parse the CSV, explicitly using a comma ',' as the delimiter.
-        let csvData = CSVtoArray(rawCSVText);
-
-        // Remove the first two rows (headers).
-        csvData.splice(0, 2);
-
-        // Add the parsed data to the list using the fast, bulk method.
-        addProtocolsToList(csvData);
-
-        // Remove the placeholder "Loading..." entry.
-        protocolList.remove('anatomyTD', '');
-
-    } catch (error) {
-        // If anything fails (e.g., file not found), log the error.
-        console.error("Error loading protocol list:", error);
-        // You could also display a user-friendly error message on the page.
-    }
-}
-
-// --- 3. Helper functions
-// Convert the XML responseText (raw data of CSV file) into an array
+// Parse CSV text into a 2D array
 const CSVtoArray = (data, delimiter = ';', omitFirstRow = false) =>
 	data
 		.slice(omitFirstRow ? data.indexOf('\n') + 1 : 0)
 		.split('\n')
 		.map(v => v.split(delimiter));
 
-// Add CSV Data to the table
+// Transform 2D array to object list and add to List.js in bulk
 function addProtocolsToList(data) {
-	// 2025-08-16 - Gemini Refactored to improve performance by reducing the number of calls to protocolList.add().
-	// 1. First, transform the entire 2D array into an array of objects.
-	//    The Array.map() method is ideal for this kind of data transformation.
-	const itemsToAdd = data.map(row => {
-		return {
-			anatomyTD: 		row[0],
-			procedureTD:  	row[1],
-			protTD:         row[2],
-			indicationTD:   row[3],
-			durationTD:     row[4],
-			prepTD:    	    row[5],
-		};
-	});
+	const itemsToAdd = data.map(row => ({
+		anatomyTD:    row[0],
+		procedureTD:  row[1],
+		protTD:       row[2],
+		indicationTD: row[3],
+		durationTD:   row[4],
+		prepTD:       row[5],
+	}));
 
-	// 2. Now, call .add() only ONCE with the complete array of new items.
-    protocolList.add(itemsToAdd);
+	protocolList.add(itemsToAdd);
 }
 
-// --- 4. Run the main function ---
+// Convert prep text into styled badges
+function formatPrepBadge(rawText) {
+	if (!rawText) return '';
+
+	const cleanText = rawText.trim();
+	const lower = cleanText.toLowerCase();
+
+	// 1. Combo check (must evaluate before individual checks)
+	if (lower.includes('fasted w/ water prep') || lower.includes('fasted with water prep')) {
+		return `<span class="badge-prep badge-combo">${cleanText}</span>`;
+	}
+
+	// 2. Fasted Preferred check
+	if (lower.includes('fasted preferred')) {
+		return `<span class="badge-prep badge-fasted-pref">${cleanText}</span>`;
+	}
+
+	// 3. Fasted check
+	if (lower.includes('fasted')) {
+		return `<span class="badge-prep badge-fasted">${cleanText}</span>`;
+	}
+
+	// 4. Water Prep check
+	if (lower.includes('water prep')) {
+		return `<span class="badge-prep badge-water">${cleanText}</span>`;
+	}
+
+	// 5. No Prep check
+	if (lower.includes('no prep')) {
+		return `<span class="badge-prep badge-no-prep">${cleanText}</span>`;
+	}
+
+	return cleanText;
+}
+
+// Apply badges to the rendered table cells
+function applyPrepBadgesToTable() {
+	document.querySelectorAll('table tbody tr').forEach(row => {
+		const prepCell = row.cells[5]; // Prep is column index 5
+		if (prepCell && !prepCell.querySelector('.badge-prep')) {
+			prepCell.innerHTML = formatPrepBadge(prepCell.textContent);
+		}
+	});
+}
+
+// ==========================================
+// 3. MAIN LOADER & EXECUTION
+// ==========================================
+
+async function loadProtocols() {
+	try {
+		const response = await fetch('usprotocols.csv');
+		if (!response.ok) {
+			throw new Error(`Failed to fetch CSV. Status: ${response.status}`);
+		}
+
+		const rawCSVText = await response.text();
+		const csvData = CSVtoArray(rawCSVText);
+
+		// Remove the two header rows
+		csvData.splice(0, 2);
+
+		// Bulk-add items to List.js
+		addProtocolsToList(csvData);
+
+		// Remove placeholder "Loading..." row
+		protocolList.remove('anatomyTD', '');
+
+		// Format prep badges once elements are in the DOM
+		applyPrepBadgesToTable();
+
+	} catch (error) {
+		console.error("Error loading protocol list:", error);
+	}
+}
+
+// Run the loader
 loadProtocols();
