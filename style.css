@@ -1,5 +1,5 @@
 /* ==========================================
-	1. FONTS & THEME VARIABLES
+	1. FONTS & ROOT VARIABLES
    ========================================== */
 
 @font-face {
@@ -13,13 +13,23 @@
 	--DignityFontFamily: "trade-gothic-next", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
+/* ==========================================
+	2. BASE & TYPOGRAPHY
+   ========================================== */
+
 body {
 	font-family: var(--DignityFontFamily);
 	font-weight: 500;
 }
 
+.normalText {
+	font-size: medium;
+	font-style: normal;
+	font-weight: normal;
+}
+
 /* ==========================================
-	2. PAGE HEADER & TITLE
+	3. PAGE HEADER & METADATA
    ========================================== */
 
 .page-title {
@@ -30,59 +40,65 @@ body {
 .updated-date {
 	float: right;
 	font-size: small;
+	text-align: right;
 }
 
 /* ==========================================
-	3. TABLE CORE & CELL STRUCTURE
+	4. RESOURCE NAVIGATION BAR
    ========================================== */
 
-table {
-	border: 1px solid #CCC;
-	font-size: medium;
-	border-collapse: collapse;
-	background-color: rgb(217, 217, 217);
-	width: 100%;
+.resource-bar-compact {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 4px 10px;
+	margin: 6px 0;
+	background-color: #f3f4f6;
+	border: 1px solid #e5e7eb;
+	border-radius: 4px;
+	font-size: 12px;
+	line-height: 1;
 }
 
-td {
-	padding: 10px;
-	border: 1px solid #CCC;
-	vertical-align: middle;
+.resource-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-wrap: wrap;
 }
 
-th {
-	background-color: var(--DignityOrange);
-	color: #FFF;
-	font-weight: bold;
-	padding: 4px;
-	text-transform: uppercase;
-	text-align: left;
-	vertical-align: middle;
+.bar-label {
+	font-weight: 600;
+	color: #4b5563;
+	margin-right: 2px;
 }
 
-tbody tr:hover {
-	background: rgb(191, 191, 191);
+.bar-divider {
+	color: #9ca3af;
+	margin: 0 4px;
+	user-select: none;
+}
+
+.chip {
+	display: inline-block;
+	padding: 3px 8px;
+	background-color: #ffffff;
+	color: #1f2937;
+	text-decoration: none;
+	border: 1px solid #d1d5db;
+	border-radius: 3px;
+	font-weight: 500;
+	transition: background-color 0.15s, border-color 0.15s, translate 0.15s;
+}
+
+.chip:hover {
+	background-color: #e5e7eb;
+	border-color: #9ca3af;
+	translate: 0 -1px;
 }
 
 /* ==========================================
-	4. COLUMN WIDTH ALLOCATIONS
-   ========================================== */
-
-.procedureCol {
-	width: 25%;
-	white-space: nowrap;
-}
-
-/* Expand Clinical Indications to take priority width */
-th.indicationTD,
-td.indicationTD,
-.indicationTD {
-	width: 35% !important;
-	min-width: 320px !important;
-}
-
-/* ==========================================
-	5. SEARCH INPUT & UTILITIES
+	5. SEARCH & HIGHLIGHTING
    ========================================== */
 
 .search {
@@ -105,17 +121,10 @@ td.indicationTD,
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Dynamic search term highlight */
 mark.highlight {
 	background-color: #ffe066;
 	color: #000000;
 	border-radius: 2px;
-}
-
-.normalText {
-	font-size: medium;
-	font-style: normal;
-	font-weight: normal;
 }
 
 /* ==========================================
@@ -166,4 +175,72 @@ mark.highlight {
 	color: #212529;
 	border: 1px solid #b8daff;
 	box-shadow: inset 0 0 0 1px #ffeeba;
+}
+
+/* ==========================================
+	7. TABLE CORE & CELL STRUCTURE
+   ========================================== */
+
+table {
+	border: 1px solid #CCC;
+	font-size: medium;
+	border-collapse: collapse;
+	background-color: rgb(217, 217, 217);
+	width: 100%;
+}
+
+th {
+	background-color: var(--DignityOrange);
+	color: #FFF;
+	font-weight: bold;
+	padding: 4px;
+	text-transform: uppercase;
+	text-align: left;
+	vertical-align: middle;
+}
+
+td {
+	padding: 10px;
+	border: 1px solid #CCC;
+	vertical-align: middle;
+}
+
+tbody tr:hover {
+	background: rgb(191, 191, 191);
+}
+
+/* ==========================================
+	8. COLUMN WIDTH ALLOCATIONS
+   ========================================== */
+
+.procedureCol {
+	width: 25%;
+	white-space: nowrap;
+}
+
+/* Expand Clinical Indications to take priority width */
+th.indicationTD,
+td.indicationTD,
+.indicationTD {
+	width: 35% !important;
+	min-width: 320px !important;
+}
+
+/* Active / Current Page Chip */
+.chip.active,
+.chip[aria-current="page"] {
+	background-color: var(--DignityOrange);
+	color: #ffffff;
+	border: 1px solid #000000;
+	font-weight: 600;
+	cursor: default;
+	pointer-events: none;
+	translate: 0 0;
+}
+
+.chip.active:hover,
+.chip[aria-current="page"]:hover {
+	background-color: var(--DignityOrange);
+	border: 1px solid #000000;
+	translate: 0 0;
 }
