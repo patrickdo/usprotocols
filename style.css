@@ -105,6 +105,13 @@ td.indicationTD,
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Dynamic search term highlight */
+mark.highlight {
+	background-color: #ffe066;
+	color: #000000;
+	border-radius: 2px;
+}
+
 .normalText {
 	font-size: medium;
 	font-style: normal;
