@@ -1,6 +1,16 @@
+/* ==========================================
+	1. FONTS & THEME VARIABLES
+   ========================================== */
+
+@font-face {
+	font-family: "trade-gothic-next";
+	src: url("Resources/trade-gothic-lt-std.otf") format("opentype");
+	font-display: swap;
+}
+
 :root {
-	--DignityOrange: rgb(247,121,0); /* "Dignity Orange" from the indications pdf */
-	--DignityFontFamily: "trade-gothic-next","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	--DignityOrange: rgb(247, 121, 0); /* Dignity Orange */
+	--DignityFontFamily: "trade-gothic-next", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 body {
@@ -8,45 +18,11 @@ body {
 	font-weight: 500;
 }
 
-table {
-	border: 1px solid #CCC;
-	font-size: medium;
-	border-collapse: collapse;
-	background-color: rgb(217,217,217);
-	width: 100%;
-	/* table-layout: fixed; */
-}
-
-/* Expand Clinical Indications to take priority width */
-th.indicationTD,
-td.indicationTD,
-.indicationTD {
-	width: 35% !important;        /* Allocates a substantial percentage of the table width */
-	min-width: 320px !important;  /* Prevents it from ever getting crushed on smaller windows */
-}
-
-td {
-	padding: 10px;
-	border: 1px solid #ccc;
-}
-
-th {
-	background-color: var(--DignityOrange);
-	color: #FFF;
-	font-weight: bold;
-	padding: 4px;
-	text-transform: uppercase;
-	text-align: left;
-}
-
-tbody tr:hover {
-	background: rgb(191,191,191);
-}
+/* ==========================================
+	2. PAGE HEADER & TITLE
+   ========================================== */
 
 .page-title {
-    /* display: flex;
-    justify-content: space-between;
-    align-items: flex-start; */
 	font-size: xx-large;
 	font-weight: bold;
 }
@@ -56,18 +32,77 @@ tbody tr:hover {
 	font-size: small;
 }
 
+/* ==========================================
+	3. TABLE CORE & CELL STRUCTURE
+   ========================================== */
+
+table {
+	border: 1px solid #CCC;
+	font-size: medium;
+	border-collapse: collapse;
+	background-color: rgb(217, 217, 217);
+	width: 100%;
+}
+
+td {
+	padding: 10px;
+	border: 1px solid #CCC;
+	vertical-align: middle;
+}
+
+th {
+	background-color: var(--DignityOrange);
+	color: #FFF;
+	font-weight: bold;
+	padding: 4px;
+	text-transform: uppercase;
+	text-align: left;
+	vertical-align: middle;
+}
+
+tbody tr:hover {
+	background: rgb(191, 191, 191);
+}
+
+/* ==========================================
+	4. COLUMN WIDTH ALLOCATIONS
+   ========================================== */
+
 .procedureCol {
 	width: 25%;
 	white-space: nowrap;
 }
 
+/* Expand Clinical Indications to take priority width */
+th.indicationTD,
+td.indicationTD,
+.indicationTD {
+	width: 35% !important;
+	min-width: 320px !important;
+}
+
+/* ==========================================
+	5. SEARCH INPUT & UTILITIES
+   ========================================== */
+
 .search {
-	background: #ffffff url('Resources/magnifying-glass-128.png') no-repeat 16px/16px;
-	background-position: 3px 3px;
-	padding-left: 23px !important;
-	height: 26px !important;
+	width: 100%;
+	max-width: 380px;
+	height: 30px;
+	line-height: 30px;
+	padding: 4px 10px 4px 28px;
+	font-size: 14px;
+	font-family: inherit;
+	border: 1px solid #CCC;
+	border-radius: 3px;
 	box-sizing: border-box;
-	font-size: 16px;
+	background: #ffffff url('Resources/magnifying-glass-128.png') no-repeat 6px center / 14px 14px;
+}
+
+.search:focus {
+	outline: none;
+	border-color: #333333;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 .normalText {
@@ -76,13 +111,10 @@ tbody tr:hover {
 	font-weight: normal;
 }
 
-@font-face {
-	font-family: "trade-gothic-next";
-	src: url(Resources/trade-gothic-lt-std.otf);
-}
+/* ==========================================
+	6. PREPARATION BADGES
+   ========================================== */
 
-/* Color-coding the Prep */
-/* Base badge layout */
 .badge-prep {
 	display: inline-block;
 	padding: 4px 8px;
