@@ -10,7 +10,7 @@
 
 :root {
 	--DignityOrange: rgb(247, 121, 0); /* Dignity Orange */
-	--DignityFontFamily: "trade-gothic-next", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	--DignityFontFamily: "trade-gothic-next", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* ==========================================
@@ -51,13 +51,13 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
-	padding: 4px 10px;
+	padding: 6px 10px;
 	margin: 6px 0;
 	background-color: #f3f4f6;
 	border: 1px solid #e5e7eb;
 	border-radius: 4px;
 	font-size: 12px;
-	line-height: 1;
+	line-height: 1.2;
 }
 
 .resource-row {
@@ -88,13 +88,25 @@ body {
 	border: 1px solid #d1d5db;
 	border-radius: 3px;
 	font-weight: 500;
-	transition: background-color 0.15s, border-color 0.15s, translate 0.15s;
+	transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 .chip:hover {
 	background-color: #e5e7eb;
 	border-color: #9ca3af;
-	translate: 0 -1px;
+	transform: translateY(-1px);
+}
+
+/* Active / Current Page Chip */
+.chip.active,
+.chip[aria-current="page"] {
+	background-color: var(--DignityOrange);
+	color: #ffffff;
+	border: 1px solid #000000;
+	font-weight: 600;
+	cursor: default;
+	pointer-events: none;
+	transform: none;
 }
 
 /* ==========================================
@@ -104,8 +116,7 @@ body {
 .search {
 	width: 100%;
 	max-width: 380px;
-	height: 30px;
-	line-height: 30px;
+	height: 32px;
 	padding: 4px 10px 4px 28px;
 	font-size: 14px;
 	font-family: inherit;
@@ -202,7 +213,7 @@ th {
 td {
 	padding: 10px;
 	border: 1px solid #CCC;
-	vertical-align: middle;
+	vertical-align: top;
 }
 
 tbody tr:hover {
@@ -219,28 +230,7 @@ tbody tr:hover {
 }
 
 /* Expand Clinical Indications to take priority width */
-th.indicationTD,
-td.indicationTD,
 .indicationTD {
-	width: 35% !important;
-	min-width: 320px !important;
-}
-
-/* Active / Current Page Chip */
-.chip.active,
-.chip[aria-current="page"] {
-	background-color: var(--DignityOrange);
-	color: #ffffff;
-	border: 1px solid #000000;
-	font-weight: 600;
-	cursor: default;
-	pointer-events: none;
-	translate: 0 0;
-}
-
-.chip.active:hover,
-.chip[aria-current="page"]:hover {
-	background-color: var(--DignityOrange);
-	border: 1px solid #000000;
-	translate: 0 0;
+	width: 35%;
+	min-width: 320px;
 }

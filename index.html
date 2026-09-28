@@ -1,30 +1,31 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Cache-control" content="max-age=600">
 	<title>DHAI US Protocols</title>
-	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 	<link rel="shortcut icon" type="image/png" href="Resources/hashtag_icon.png">
-	<link rel="icon" type="image/png" href="Resources/hashtag_icon.png">
-</head>
-
+	<link rel="icon" type="image/png" href="Resources/hashtag_icon.png"></head>
 <body>
 
-	<div class="page-title">
+<div class="page-title">
 		DHAI US Protocols
 		<span class="updated-date">
-			Updated: 9/25/2026 <!-- UPDATED DATE -->
-			<div class="resource-bar-compact">
-				<div class="resource-row">
+			Updated: 9/28/2026 <!-- UPDATED DATE -->
+			<span class="resource-bar-compact">
+				<span class="resource-row">
 					<span class="bar-label">Resources:</span>
 					<a href="https://patrickdo.github.io/referralbinder/" class="chip">Referral Guide</a>
-				</div>
-				<div class="resource-row">
+				</span>
+				<span class="resource-row">
 					<span class="bar-label">Protocols:</span>
 					<a href="https://patrickdo.github.io/xrayprotocols/" class="chip">X-ray</a>
 					<a class="chip active" aria-current="page">US</a>
 					<a href="https://apps.mrgschedule.com/ctprotocols/" class="chip">CT/MRI</a>
-				</div>
-			</div>
+				</span>
+			</span>
 		</span>
 	</div>
 
@@ -32,20 +33,22 @@
 
 	<div id="protocolDIV">
 		<table id="main">
-			<tr>
-				<th colspan="6">
-					<input class="search" type="search" placeholder="Search" aria-label="inputSearch" autofocus/> 
-				</th>
-			</tr>
+			<thead>
+				<tr>
+					<th colspan="6">
+						<input class="search" type="search" placeholder="Search" aria-label="Search US protocols" autofocus/> 
+					</th>
+				</tr>
 
-			<tr style="position: sticky; top: 0; background-color: #fff; z-index: 1;">
-				<th class="anatomyCol">Anatomy</th>
-				<th class="procedureCol">Procedure<br>(Order As)</th>
-				<th class="protCol">Protocol</th>
-				<th class="indicationCol">Clinical<br>Indications</th>
-				<th class="durationCol">Duration</th>
-                <th class="prepCol">Prep</th>
-			</tr>
+				<tr style="position: sticky; top: 0; background-color: #fff; z-index: 1;">
+					<th class="anatomyCol">Anatomy</th>
+					<th class="procedureCol">Procedure<br>(Order As)</th>
+					<th class="protCol">Protocol</th>
+					<th class="indicationCol">Clinical<br>Indications</th>
+					<th class="durationCol">Duration</th>
+					<th class="prepCol">Prep</th>
+				</tr>
+			</thead>
 
 			<tbody class="list">
 			<!-- not compatible with td colspan -->
@@ -57,10 +60,8 @@
 					<td class="protTD">Loading...</td>
 					<td class="indicationTD">Loading...</td>
 					<td class="durationTD">Loading...</td>
-                    <td class="prepTD">Loading...</td>
+					<td class="prepTD">Loading...</td>
 				</tr>
-
-
 			</tbody>
 
 			<tbody class="no-result" style="display:none;">
@@ -70,7 +71,6 @@
 					</td>
 				</tr>
 			</tbody>
-
 		</table>
 	</div>
 
