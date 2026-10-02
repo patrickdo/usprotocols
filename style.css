@@ -224,8 +224,8 @@ tbody tr:hover {
 	8. COLUMN WIDTH ALLOCATIONS
    ========================================== */
 
-.procedureCol {
-	width: 25%;
+.anatomyCol {
+	width: 1%;
 	white-space: nowrap;
 }
 
