@@ -76,9 +76,9 @@ const CSVtoArray = (data, delimiter = ';', omitFirstRow = false) =>
 // Transform 2D array to object list and add to List.js in bulk
 function addProtocolsToList(data) {
 	const itemsToAdd = data.map(row => ({
-		anatomyTD:    row[0],
-		procedureTD:  row[1],
-		protTD:       row[2],
+		protTD:       row[0],
+		anatomyTD:    row[1],
+		procedureTD:  row[2],
 		indicationTD: row[3],
 		durationTD:   row[4],
 		prepTD:       row[5],
