@@ -1,81 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Cache-control" content="max-age=600">
-	<title>DHAI US Protocols</title>
-	<link rel="stylesheet" href="style.css" type="text/css" media="screen">
-	<link rel="shortcut icon" type="image/png" href="Resources/hashtag_icon.png">
-	<link rel="icon" type="image/png" href="Resources/hashtag_icon.png"></head>
-<body>
-
-<div class="page-title">
-		DHAI US Protocols
-		<span class="updated-date">
-			Updated: 10/11/2026 <!-- UPDATED DATE -->
-			<span class="resource-bar-compact">
-				<span class="resource-row">
-					<span class="bar-label">Resources:</span>
-					<a href="https://patrickdo.github.io/referralbinder/" class="chip">Referral Guide</a>
-				</span>
-				<span class="resource-row">
-					<span class="bar-label">Protocols:</span>
-					<a href="https://patrickdo.github.io/xrayprotocols/" class="chip">X-ray</a>
-					<a class="chip active" aria-current="page">US</a>
-					<a href="https://apps.mrgschedule.com/ctprotocols/" class="chip">CT/MRI</a>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Cache-control" content="max-age=600" />
+		<title>DHAI US Protocols</title>
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+		<link rel="shortcut icon" type="image/png" href="Resources/hashtag_icon.png" />
+		<link rel="icon" type="image/png" href="Resources/hashtag_icon.png" />
+	</head>
+	<body>
+		<div class="page-title">
+			DHAI US Protocols
+			<span class="updated-date">
+				Updated: 10/17/2026
+				<!-- UPDATED DATE -->
+				<span class="resource-bar-compact">
+					<span class="resource-row">
+						<span class="bar-label">Resources:</span>
+						<a href="https://patrickdo.github.io/referralbinder/" class="chip">Referral Guide</a>
+					</span>
+					<span class="resource-row">
+						<span class="bar-label">Protocols:</span>
+						<a href="https://patrickdo.github.io/xrayprotocols/" class="chip">X-ray</a>
+						<a class="chip active" aria-current="page">US</a>
+						<a href="https://apps.mrgschedule.com/ctprotocols/" class="chip">CT/MRI</a>
+					</span>
 				</span>
 			</span>
-		</span>
-	</div>
+		</div>
 
-	<p>Start typing in the search box to narrow down the list.</p>
+		<p>
+			<details class="prep-details">
+				<summary class="prep-summary">Ultrasound Preparation Guidelines</summary>
+				<table class="prep-table">
+					<thead>
+						<tr>
+							<th class="prep-th">US FASTED PREP</th>
+							<th class="prep-th">US WATER PREP</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="prep-td-left">
+								<p class="prep-p">
+									<strong>0 – 1 year old:</strong> No feedings for two hours prior to the exam
+								</p>
+								<p class="prep-p">
+									<strong>2 – 4 years old:</strong> Nothing to eat or drink for four hours prior to
+									the exam (please schedule fasting exams in AM to promote compliance)
+								</p>
+								<p class="prep-p">
+									<strong>5 – 10 years old:</strong> Nothing to eat or drink for six hours prior to
+									the exam (please schedule fasting exams in AM to promote compliance)
+								</p>
+								<p class="prep-p">
+									<strong>11 – Adult:</strong> Nothing to eat or drink 8 hours prior to the exam
+									(please schedule fasting exams in AM to promote compliance)
+								</p>
+							</td>
+							<td class="prep-td-right">
+								<p class="prep-p">
+									<strong>0 – 2 years old:</strong> encourage fluids; no required amount or time frame
+								</p>
+								<p class="prep-p">
+									<strong>3 – 6 years old:</strong> 8 to 16 ounces of water finished 30 minutes prior
+									to exam time
+								</p>
+								<p class="prep-p">
+									<strong>7 – 10 years old:</strong> 24 ounces of water finished 45 minutes prior to
+									exam time
+								</p>
+								<p class="prep-p">
+									<strong>11 years old to adult:</strong> 24 ounces of water finished 1.5 hour prior
+									to exam time
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="prep-td-full">
+								<ul class="prep-ul">
+									<li class="prep-li">
+										Patients should arrive with a full bladder and wait to empty it until instructed
+										by a tech.
+									</li>
+									<li class="prep-li">
+										If BOTH fasting and water prep are needed for dual studies scheduled. Pt should
+										fast the required hours and complete water prep with flat water and hold
+										bladder. Book both exams together back to back in either order - the tech will
+										perform the appropriate study first.
+									</li>
+									<li class="prep-li">
+										FASTED studies should be offered AM appointments to encourage compliance. If a
+										patient desires a PM appointment only, document full understanding of prep
+										requirements.
+									</li>
+									<li class="prep-li">Small sips of water are okay for fasted exams.</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</details>
+		</p>
 
-	<div id="protocolDIV">
-		<table id="main">
-			<thead>
-				<tr>
-					<th colspan="6">
-						<input class="search" type="search" placeholder="Search" aria-label="Search US protocols" autofocus/> 
-					</th>
-				</tr>
+		<p>Start typing in the search box to narrow down the list.</p>
 
-				<tr style="position: sticky; top: 0; background-color: #fff; z-index: 1;">
-					<th class="protCol">Protocol</th>
-					<th class="anatomyCol">Anatomy</th>
-					<th class="procedureCol">Procedure<br>(Order As)</th>
-					<th class="indicationCol">Clinical<br>Indications</th>
-					<th class="durationCol">Duration</th>
-					<th class="prepCol">Prep</th>
-				</tr>
-			</thead>
+		<div id="protocolDIV">
+			<table id="main">
+				<thead>
+					<tr>
+						<th colspan="6">
+							<input
+								class="search"
+								type="search"
+								placeholder="Search"
+								aria-label="Search US protocols"
+								autofocus
+							/>
+						</th>
+					</tr>
 
-			<tbody class="list">
-			<!-- not compatible with td colspan -->
+					<tr style="position: sticky; top: 0; background-color: #fff; z-index: 1">
+						<th class="protCol">Protocol</th>
+						<th class="anatomyCol">Anatomy</th>
+						<th class="procedureCol">Procedure<br />(Order As)</th>
+						<th class="indicationCol">Clinical<br />Indications</th>
+						<th class="durationCol">Duration</th>
+						<th class="prepCol">Prep</th>
+					</tr>
+				</thead>
 
-				<!-- template entry that then gets removed -->
-				<tr id="protocolItem">
-					<td class="protTD">Loading...</td>
-					<td class="anatomyTD"></td>
-					<td class="procedureTD">Loading...</td>
-					<td class="indicationTD">Loading...</td>
-					<td class="durationTD">Loading...</td>
-					<td class="prepTD">Loading...</td>
-				</tr>
-			</tbody>
+				<tbody class="list">
+					<!-- not compatible with td colspan -->
 
-			<tbody class="no-result" style="display:none;">
-				<tr>
-					<td colspan="6" style="padding: 20px; font-weight:bold; color: #555;">
-						No matching results.
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+					<!-- template entry that then gets removed -->
+					<tr id="protocolItem">
+						<td class="protTD">Loading...</td>
+						<td class="anatomyTD"></td>
+						<td class="procedureTD">Loading...</td>
+						<td class="indicationTD">Loading...</td>
+						<td class="durationTD">Loading...</td>
+						<td class="prepTD">Loading...</td>
+					</tr>
+				</tbody>
 
-	<script type="text/javascript" src="list.min.js"></script>	<!-- https://listjs.com/ . Note: v2.3.1 does NOT work out of the box -->
-	<script type="text/javascript" src="script.js"></script>
+				<tbody class="no-result" style="display: none">
+					<tr>
+						<td colspan="6" class="no-result-td">No matching results.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-</body>
+		<script type="text/javascript" src="list.min.js"></script>
+		<!-- https://listjs.com/ . Note: v2.3.1 does NOT work out of the box -->
+		<script type="text/javascript" src="script.js"></script>
+	</body>
 </html>

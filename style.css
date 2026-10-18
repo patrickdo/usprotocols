@@ -1,6 +1,6 @@
 /* ==========================================
 	1. FONTS & ROOT VARIABLES
-   ========================================== */
+	========================================== */
 
 @font-face {
 	font-family: "trade-gothic-next";
@@ -15,7 +15,7 @@
 
 /* ==========================================
 	2. BASE & TYPOGRAPHY
-   ========================================== */
+	========================================== */
 
 body {
 	font-family: var(--DignityFontFamily);
@@ -30,7 +30,7 @@ body {
 
 /* ==========================================
 	3. PAGE HEADER & METADATA
-   ========================================== */
+	========================================== */
 
 .page-title {
 	font-size: xx-large;
@@ -45,7 +45,7 @@ body {
 
 /* ==========================================
 	4. RESOURCE NAVIGATION BAR
-   ========================================== */
+	========================================== */
 
 .resource-bar-compact {
 	display: flex;
@@ -88,7 +88,10 @@ body {
 	border: 1px solid #d1d5db;
 	border-radius: 3px;
 	font-weight: 500;
-	transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+	transition:
+		background-color 0.15s ease,
+		border-color 0.15s ease,
+		transform 0.15s ease;
 }
 
 .chip:hover {
@@ -111,7 +114,7 @@ body {
 
 /* ==========================================
 	5. SEARCH & HIGHLIGHTING
-   ========================================== */
+	========================================== */
 
 .search {
 	width: 100%;
@@ -120,10 +123,10 @@ body {
 	padding: 4px 10px 4px 28px;
 	font-size: 14px;
 	font-family: inherit;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	border-radius: 3px;
 	box-sizing: border-box;
-	background: #ffffff url('Resources/magnifying-glass-128.png') no-repeat 6px center / 14px 14px;
+	background: #ffffff url("Resources/magnifying-glass-128.png") no-repeat 6px center / 14px 14px;
 }
 
 .search:focus {
@@ -140,7 +143,7 @@ mark.highlight {
 
 /* ==========================================
 	6. PREPARATION BADGES
-   ========================================== */
+	========================================== */
 
 .badge-prep {
 	display: inline-block;
@@ -190,10 +193,10 @@ mark.highlight {
 
 /* ==========================================
 	7. TABLE CORE & CELL STRUCTURE
-   ========================================== */
+	========================================== */
 
 table {
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	font-size: medium;
 	border-collapse: collapse;
 	background-color: rgb(217, 217, 217);
@@ -202,7 +205,7 @@ table {
 
 th {
 	background-color: var(--DignityOrange);
-	color: #FFF;
+	color: #fff;
 	font-weight: bold;
 	padding: 4px;
 	text-transform: uppercase;
@@ -212,7 +215,7 @@ th {
 
 td {
 	padding: 10px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	vertical-align: top;
 }
 
@@ -222,7 +225,7 @@ tbody tr:hover {
 
 /* ==========================================
 	8. COLUMN WIDTH ALLOCATIONS
-   ========================================== */
+	========================================== */
 
 .anatomyCol {
 	width: 1%;
@@ -233,4 +236,91 @@ tbody tr:hover {
 .indicationTD {
 	width: 35%;
 	min-width: 320px;
+}
+
+/* ==========================================
+	9. ULTRASOUND PREPARATION DETAILS BOX
+	========================================== */
+
+.prep-details {
+	width: 100%;
+	border: 2px solid #5c4033;
+	background-color: #f7e6d4;
+	font-family: Arial, sans-serif;
+	color: #2c221e;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.prep-summary {
+	padding: 12px 16px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #e8d0bc;
+	user-select: none;
+}
+
+.prep-table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #f7e6d4;
+	border: none;
+}
+
+.prep-th {
+	width: 50%;
+	padding: 16px;
+	text-align: center;
+	vertical-align: top;
+	border-bottom: 1px solid #5c4033;
+	border-right: 1px solid #5c4033;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.prep-td-left {
+	width: 50%;
+	padding: 16px;
+	vertical-align: top;
+	border-bottom: 1px solid #5c4033;
+	border-right: 1px solid #5c4033;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.prep-td-right {
+	width: 50%;
+	padding: 16px;
+	vertical-align: top;
+	border-bottom: 1px solid #5c4033;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.prep-td-full {
+	padding: 16px;
+	vertical-align: top;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.prep-p {
+	margin: 0;
+}
+
+.prep-ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+.prep-li {
+	margin: 0;
+}
+
+.no-result-td {
+	padding: 20px;
+	font-weight: bold;
+	color: #555;
 }
