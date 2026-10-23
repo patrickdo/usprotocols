@@ -9,8 +9,9 @@
 }
 
 :root {
-	--DignityOrange: rgb(247, 121, 0); /* Dignity Orange */
+	--DignityOrange: rgb(247, 121, 0);
 	--DignityFontFamily: "trade-gothic-next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	interpolate-size: allow-keywords;
 }
 
 /* ==========================================
@@ -242,85 +243,200 @@ tbody tr:hover {
 	9. ULTRASOUND PREPARATION DETAILS BOX
 	========================================== */
 
+/* Main Container: Warm Sandstone & Terracotta Accordion Card */
 .prep-details {
 	width: 100%;
-	border: 2px solid #5c4033;
-	background-color: #f7e6d4;
-	font-family: Arial, sans-serif;
-	color: #2c221e;
+	background-color: #faf6f3;
+	border: 1px solid #eadecd;
+	border-left: 4px solid #dfcfbc;
 	border-radius: 4px;
+	margin-bottom: 6px;
 	overflow: hidden;
+	box-sizing: border-box;
+	transition:
+		background-color 0.25s ease,
+		border-color 0.25s ease;
 }
 
+/* Hover state on closed container */
+.prep-details:hover {
+	background-color: #f5eee8;
+	border-top-color: #dfcfbc;
+	border-right-color: #dfcfbc;
+	border-bottom-color: #dfcfbc;
+	border-left-color: #c26122;
+}
+
+/* Open / active container state */
+.prep-details[open] {
+	background-color: #f6eee7;
+	border-top-color: #dfcfbc;
+	border-right-color: #dfcfbc;
+	border-bottom-color: #dfcfbc;
+	border-left-color: #c26122;
+}
+
+.prep-details[open]:hover {
+	background-color: #f2e7de;
+}
+
+/* Summary Header */
 .prep-summary {
-	padding: 12px 16px;
-	font-size: 16px;
-	font-weight: bold;
+	padding: 8px 12px;
+	background: transparent;
+	color: #2c1f18;
+	font-family: inherit;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 600;
 	cursor: pointer;
-	background-color: #e8d0bc;
 	user-select: none;
+	list-style: none;
+	transition: color 0.15s ease;
 }
 
+.prep-details[open] .prep-summary {
+	color: #1f140e;
+}
+
+/* Custom Expand/Collapse Indicator */
+.prep-summary::after {
+	content: "+";
+	float: right;
+	margin-left: 12px;
+	font-style: normal;
+	font-weight: bold;
+	color: #c26122;
+	white-space: nowrap;
+}
+
+.prep-details[open] .prep-summary::after {
+	content: "−";
+}
+
+.prep-summary::-webkit-details-marker {
+	display: none;
+}
+
+.prep-summary:focus-visible {
+	outline: 2px solid #c26122;
+	outline-offset: 2px;
+}
+
+/* Smooth Accordion Animation */
+.prep-details::details-content {
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition:
+		height 0.3s ease,
+		opacity 0.25s ease,
+		content-visibility 0.3s allow-discrete;
+}
+
+.prep-details[open]::details-content {
+	height: auto;
+	opacity: 1;
+}
+
+/* Nested Content Table */
 .prep-table {
 	width: 100%;
 	border-collapse: collapse;
-	background-color: #f7e6d4;
+	background-color: transparent;
 	border: none;
+	border-top: 1px solid #dfcfbc;
+	table-layout: fixed;
 }
 
 .prep-th {
 	width: 50%;
-	padding: 16px;
-	text-align: center;
+	padding: 8px 12px;
+	text-align: left;
 	vertical-align: top;
-	border-bottom: 1px solid #5c4033;
-	border-right: 1px solid #5c4033;
-	font-size: 16px;
-	font-weight: bold;
-	text-decoration: underline;
+	border-bottom: 1px solid #eadecd;
+	border-right: 1px solid #eadecd;
+	background-color: #ede2d7;
+	color: #2c1f18;
+	font-family: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: none;
+	text-decoration: none;
+}
+
+.prep-th:last-child {
+	border-right: none;
 }
 
 .prep-td-left {
 	width: 50%;
-	padding: 16px;
+	padding: 8px 12px;
 	vertical-align: top;
-	border-bottom: 1px solid #5c4033;
-	border-right: 1px solid #5c4033;
-	font-size: 14px;
-	line-height: 1.5;
+	border-bottom: 1px solid #eadecd;
+	border-right: 1px solid #eadecd;
+	color: #3d2b22;
+	font-family: inherit;
+	font-size: 13px;
+	line-height: 1.4;
+	transition: background-color 0.15s ease;
 }
 
 .prep-td-right {
 	width: 50%;
-	padding: 16px;
+	padding: 8px 12px;
 	vertical-align: top;
-	border-bottom: 1px solid #5c4033;
-	font-size: 14px;
-	line-height: 1.5;
+	border-bottom: 1px solid #eadecd;
+	border-right: none;
+	color: #3d2b22;
+	font-family: inherit;
+	font-size: 13px;
+	line-height: 1.4;
+	transition: background-color 0.15s ease;
 }
 
 .prep-td-full {
-	padding: 16px;
+	padding: 8px 12px;
 	vertical-align: top;
-	font-size: 14px;
-	line-height: 1.5;
+	border-bottom: 1px solid #eadecd;
+	color: #3d2b22;
+	font-family: inherit;
+	font-size: 13px;
+	line-height: 1.4;
+	transition: background-color 0.15s ease;
+}
+
+/* Warm Linen Row Hover State */
+.prep-table tbody tr:hover td {
+	background-color: #f0e5da;
 }
 
 .prep-p {
-	margin: 0;
+	margin: 0 0 4px 0;
+	color: #3d2b22;
+}
+
+.prep-p:last-child {
+	margin-bottom: 0;
 }
 
 .prep-ul {
 	margin: 0;
-	padding-left: 20px;
+	padding-left: 18px;
+	color: #3d2b22;
 }
 
 .prep-li {
-	margin: 0;
+	margin: 0 0 3px 0;
+}
+
+.prep-li:last-child {
+	margin-bottom: 0;
 }
 
 .no-result-td {
-	padding: 20px;
+	padding: 16px;
 	font-weight: bold;
 	color: #555;
+	font-size: 12px;
 }
